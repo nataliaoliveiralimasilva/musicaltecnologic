@@ -4,128 +4,402 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Página</title>
-    <link rel="stylesheet" href="Project - CSS Sheet.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #201d1d; 
+        }
+
+        header {
+            background-color: #1a1919;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: black;
+            height: 30px;
+            color: rgb(100, 91, 91);
+            text-align: center;
+            padding: 20px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        nav a {
+            color: rgb(253, 253, 253);
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .conteudo {
+            background-color: rgb(240, 235, 235); 
+            border-radius: 10px; 
+            padding: 20px;
+            margin: 10px auto; 
+            width: 90%; 
+            max-width: 900px; 
+        }
+
+        .botao1 {
+            float: left;
+            background-color: rgb(8, 8, 8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            border: none;
+            outline: none;
+        }
+
+        .botao2 {
+            float: right;
+            background-color: rgb(8, 8, 8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            border: none;
+            outline: none;
+        }
+
+        .logo {
+            float: center;
+            margin: 10px;
+        }
+
+        .logo {
+            margin: 10px;
+            max-width: 60px;
+
+        }
+
+        .produtos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .produto {
+            width: 30%;
+            padding: 20px;
+            margin: 10px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .produto img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .produto h3 {
+            margin-top: 10px;
+        }
+
+        .carrinho {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .carrinho button {
+            background-color: #ffc107; 
+            color: #343a40; 
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            border: none;
+            outline: none;
+        }
+
+        footer {
+            background-color: #343a40; 
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #ffffff; 
+            }
+    
+            header {
+                background-color: #343a40; 
+                color: #fff;
+                padding: 20px;
+                text-align: center;
+            }
+    
+            nav {
+                background-color: #3f4750; 
+                color: #fff;
+                text-align: center;
+                padding: 10px 0;
+            }
+    
+            nav a {
+                color: white;
+                text-decoration: none;
+                padding: 10px 20px;
+            }
+    
+            nav a:hover {
+                text-decoration: underline;
+            }
+    
+            .conteudo {
+                background-color: #fff; /* Fundo branco */
+                border-radius: 10px; /* Cantos arredondados */
+                padding: 20px;
+                margin: 10px auto; /* Centraliza e dá um espaçamento */
+                width: 90%; /* Largura do conteúdo */
+                max-width: 1200px; /* Largura máxima da janela */
+            }
+            .secao {
+            margin-top: 40px; /* Maior espaçamento entre seções */
+        }
+
+        .titulo-secao {
+            font-size: 36px; /* Título maior */
+            margin-bottom: 20px; /* Maior espaçamento abaixo do título */
+            color: #2a2e31; /* Texto escuro */
+            text-align: center; /* Centraliza o título */
+        }
+
+        .produtos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .produto {
+            width: 30%;
+            padding: 20px;
+            margin: 20px 0; /* Maior espaçamento entre produtos */
+            background-color: #f1f1f1; /* Fundo cinza-claro */
+            border-radius: 10px;
+            transition: all 0.3s ease; /* Transição suave */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+
+        .produto:hover {
+            transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+            box-shadow: 0 0 20px rgba(24, 23, 23, 0.2); /* Sombra mais pronunciada */
+        }
+
+        .produto img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease; /* Transição suave */
+            width: 250px;
+            height: 250px;
+        }
+
+        .produto:hover img {
+            transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+        }
+
+        .produto h3 {
+            margin-top: 20px; /* Maior espaçamento acima do título */
+            font-size: 24px; /* Tamanho maior */
+        }
+
+        .produto p {
+            font-weight: bold;
+            margin-bottom: 20px; /* Maior espaçamento abaixo do preço */
+        }
+
+        .produto button {
+            background-color: #ffc107; /* Amarelo */
+            color: #3a3c3d; /* Cinza escuro */
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            display: block;
+            margin: 10px auto;
+            transition: background-color 0.3s ease; /* Transição suave */
+        }
+
+        .produto button:hover {
+            background-color: #ffca2c; /* Amarelo mais claro ao passar o mouse */
+        }
+
+        footer {
+            background-color: #0e1013; /* Cinza escuro */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+            .conteudo {
+            background-color:#e9ecef; /* Fundo branco */
+            border-radius: 10px; /* Cantos arredondados */
+            padding: 20px;
+            margin: 10px auto; /* Centraliza e dá um espaçamento */
+            width: 90%; /* Largura do conteúdo */
+            max-width: 900px; /* Largura máxima da janela */
+        }
+
+
+    </style>
 </head>
 <body>
 
     <header>
-        <img src="caminho_para_a_imagem.jpg" alt="Banner" style="width: 100%; max-width: 960px;">
+        <img src="imagem/welcome to our.png" height="200px" width="960px" alt="Banner">
     </header>
 
     <nav>
-        <a href="#">Item 1</a>
-        <a href="#">Item 2</a>
-        <a href="#">Item 3</a>
-        <a href="#">Item 4</a>
-        <a href="#">Item 5</a>
+       
     </nav>
 
-    <div class="conteudo">
+    <div class="conteudo">  <!-- Aqui vai o conteúdo da página -->
         <p>
             Começa o <b>conteúdo...</b>
         </p>
         <button class="botao1">Menu</button>
-        <img class = "logo" src = "Caminho do Logo" alt = "Logo" style="width: 100%; max-width: 60px;"></img>
+        <img class = "logo" src = "jjjjjjjjjjjj" alt = "Logo" width: 980px; max-width: 60px;></img>
         <button class="botao2">Perfil</button>
 
 
-   
+    
        
         <div class="conteudo">
             <div class="secao" id="guitarras">
                 <h2 class="titulo-secao">Guitarras</h2>
                 <div class="produtos">
                     <div class="produto">
-                        <img src="caminho_para_guitarra1.jpg" alt="Guitarra 1">
-                        <h3>Guitarra 1</h3>
+                        <img src="https://static.vecteezy.com/system/resources/previews/030/467/169/large_2x/a-serene-composition-acoustic-guitar-and-musical-keys-rest-on-a-blank-canvas-vertical-mobile-wallpaper-ai-generated-free-photo.jpg"  alt="Guitarra 1">
+                        <h3>Violão Klass Guitar KVN6 Natural</h3>
+                        <p>R$ 1.500,00</p>
+                        <button>Adicionar ao Carrinho</button>
+                    </div>
+                    <div class="produto">
+                        <img src="https://i.pinimg.com/originals/86/57/00/8657005cd101b6dc77d9bf139811cc1a.png" alt="Guitarra 2">
+                        <h3>Guitarra Gibson Les Paul Classic 1990</h3>
+                        <p>R$ 2.500,00</p>
+                        <button>Adicionar ao Carrinho</button>
+                    </div>
+                    <!-- Adicione mais guitarras conforme necessário -->
+                </div>
+            </div>
+        
+            <div class="secao" id="teclados">
+                <h2 class="titulo-secao">Teclado</h2>
+                <div class="produtos">
+                    <div class="produto">
+                        <img src="https://www.korg.com.br/imgs/produtos/cabecalho/korg_10270610.jpg" alt="Teclado 1">
+                        <h3>Teclado Arranjador Korg PA5X-76</h3>
+                        <p>R$ 1.800,00</p>
+                        <button>Adicionar ao Carrinho</button>
+                    </div>
+                    <div class="produto">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_987390-MLB26525264888_122017-O.webp" alt="Teclado 2">
+                        <h3>Teclado Yamaha PSR (USADO) </h3>
                         <p>R$ 500,00</p>
                         <button>Adicionar ao Carrinho</button>
                     </div>
-                    <div class="produto">
-                        <img src="caminho_para_guitarra2.jpg" alt="Guitarra 2">
-                        <h3>Guitarra 2</h3>
-                        <p>R$ 600,00</p>
-                        <button>Adicionar ao Carrinho</button>
-                    </div>
+                    <!-- Adicione mais teclados conforme necessário -->
                 </div>
             </div>
-       
-            <div class="secao" id="teclados">
-                <h2 class="titulo-secao">Teclados</h2>
-                <div class="produtos">
-                    <div class="produto">
-                        <img src="caminho_para_teclado1.jpg" alt="Teclado 1">
-                        <h3>Teclado 1</h3>
-                        <p>R$ 800,00</p>
-                        <button>Adicionar ao Carrinho</button>
-                    </div>
-                    <div class="produto">
-                        <img src="caminho_para_teclado2.jpg" alt="Teclado 2">
-                        <h3>Teclado 2</h3>
-                        <p>R$ 900,00</p>
-                        <button>Adicionar ao Carrinho</button>
-                    </div>
-                </div>
-            </div>
-       
+        
             <div class="secao" id="baterias">
                 <h2 class="titulo-secao">Baterias</h2>
                 <div class="produtos">
                     <div class="produto">
-                        <img src="caminho_para_bateria1.jpg" alt="Bateria 1">
-                        <h3>Bateria 1</h3>
-                        <p>R$ 1200,00</p>
+                        <img src="https://www.cmkvirtual.com.br/storage/images/cache/bateria-turbo-preta-14-12-13-16-22-usada-produto-1680531729-1200-f4fbae04.jpg" alt="Bateria 1">
+                        <h3>Bateria Turbo Preta (USADO)</h3>
+                        <p>R$ 700,00</p>
                         <button>Adicionar ao Carrinho</button>
                     </div>
                     <div class="produto">
-                        <img src="caminho_para_bateria2.jpg" alt="Bateria 2">
-                        <h3>Bateria 2</h3>
+                        <img src="https://musicaemercado.org/wp-content/uploads/2021/11/bateria-trinity-michael-2.jpeg" alt="Bateria 2">
+                        <h3>Bateria Acustica Michael</h3>
                         <p>R$ 1300,00</p>
                         <button>Adicionar ao Carrinho</button>
                     </div>
+                    <!-- Adicione mais baterias conforme necessário -->
                 </div>
             </div>
-       
+        
             <div class="secao" id="microfones">
                 <h2 class="titulo-secao">Microfones</h2>
                 <div class="produtos">
                     <div class="produto">
-                        <img src="caminho_para_microfone1.jpg" alt="Microfone 1">
-                        <h3>Microfone 1</h3>
+                        <img src="https://cdn.awsli.com.br/600x1000/254/254944/produto/237484382/01-vm-v16u-uytb75zmwi.jpg" alt="Microfone 1">
+                        <h3>Microfone sem fio VM-V16U</h3>
                         <p>R$ 150,00</p>
                         <button>Adicionar ao Carrinho</button>
                     </div>
                     <div class="produto">
-                        <img src="caminho_para_microfone2.jpg" alt="Microfone 2">
-                        <h3>Microfone 2</h3>
-                        <p>R$ 160,00</p>
+                        <img src="https://cdn.awsli.com.br/600x450/1717/1717335/produto/183131179/8ed5457618.jpg" alt="Microfone 2">
+                        <h3> Microfone com Cabo Original</h3>
+                        <p>R$ 300,00</p>
                         <button>Adicionar ao Carrinho</button>
                     </div>
+                    <!-- Adicione mais microfones conforme necessário -->
                 </div>
             </div>
-       
+        
             <div class="secao" id="acessorios">
                 <h2 class="titulo-secao">Acessórios</h2>
                 <div class="produtos">
                     <div class="produto">
-                        <img src="caminho_para_acessorio1.jpg" alt="Acessório 1">
-                        <h3>Acessório 1</h3>
-                        <p>R$ 20,00</p>
+                        <img src="https://images.tcdn.com.br/img/img_prod/589617/kit_de_acessorios_para_violao_top_som_musical_276_1_20190423145151.jpg" alt="Acessório 1">
+                        <h3>Kit De Acessório Para Violão</h3>
+                        <p>R$ 550,00</p>
                         <button>Adicionar ao Carrinho</button>
                     </div>
                     <div class="produto">
-                        <img src="caminho_para_acessorio2.jpg" alt="Acessório 2">
-                        <h3>Acessório 2</h3>
-                        <p>R$ 30,00</p>
+                        <img src="https://carrefourbr.vtexassets.com/arquivos/ids/44276621/d5353845b6eb4456aef72d3dec0a46c6.jpg?v=637850462541130000" alt="Acessório 2">
+                        <h3>Teclado Pedestal Em X Altura Regulável MSPT1</h3>
+                        <p>R$ 180,00</p>
                         <button>Adicionar ao Carrinho</button>
                     </div>
+                    <!-- Adicione mais acessórios conforme necessário -->
                 </div>
             </div>
         </div>
-       
+        
         <footer>
             <p>&copy; 2024 Venda de Instrumentos Musicais. Todos os direitos reservados.</p>
         </footer>
-       
+        
+    
+        <footer>
+            <p>&copy; 2024 Venda de Musical Technologies. Todos os direitos reservados.</p>
+        </footer>
+    
+    
+
 </body>
-</html>
+</html> 
