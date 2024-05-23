@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #2b36aa, #7d38c3);
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #006aff; /* Azul */
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #004bbd; /* Azul mais escuro ao passar o mouse */
+        }
+
+        .login-link {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .login-link a {
+            color: #006aff; /* Azul */
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cadastro</h2>
+        <input type="text" id="name" placeholder="Nome" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Senha" required>
+        <input type="password" id="confirmPassword" placeholder="Confirme a Senha" required>
+        <button onclick="signup()">Cadastrar</button>
+        <div class="login-link">
+            Já tem uma conta? <a href="login.html">Faça login</a>
+        </div>
+    </div>
+
+    <script>
+        function signup() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (name && email && password && confirmPassword) {
+                if (password !== confirmPassword) {
+                    alert('As senhas não correspondem.');
+                    return;
+                }
+
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+               
+                if (users.some(user => user.email === email)) {
+                    alert('Email já está cadastrado. Por favor, use outro email.');
+                } else {
+                    users.push({ name, email, password });
+                    localStorage.setItem('users', JSON.stringify(users));
+                    alert('Cadastro realizado com sucesso!');
+                    document.getElementById('name').value = '';
+                    document.getElementById('email').value = '';
+                    document.getElementById('password').value = '';
+                    document.getElementById('confirmPassword').value = '';
+                }
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        }
+    </script>
+</body>
+</html>

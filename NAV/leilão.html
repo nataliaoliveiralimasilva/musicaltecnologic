@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #00f, #800080); /* Degradê de azul para roxo */
+            margin: 0;
+            padding: 20px;
+            color: #fff; /* Texto branco para melhor contraste */
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #000; /* Texto preto dentro do contêiner para contraste */
+            border-radius: 7px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #757575;
+        }
+        .cart-item img {
+            height: 20px;
+            width: 100px;
+            margin-right: 20px;
+        }
+        .cart-item-details {
+            flex: 1;
+        }
+        .cart-item-details h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .cart-item-details p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .cart-item-price, .cart-item-quantity, .cart-item-subtotal {
+            width: 200px;
+            text-align: right;
+        
+        }
+        .cart-item-quantity input {
+            height: 15px;
+            width: 50px;
+            text-align: right;
+            border-radius: 7px;
+            background-color: #bca2fd;
+        }
+        .total {
+            text-align: right;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .pedido {
+            text-align: right;
+            margin-top: 20px;
+        }
+        .pedido button {
+            padding: 10px 20px;
+            background-color: #6448c0; /* Cor azul */
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 10px;;
+        }
+        .pedido button:hover {
+            background-color: #4a328b; /* Cor azul escuro */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Carrinho de Compras</h1>
+            <br>
+        </div>
+        <div class="cart-item" data-price="50">
+            <img src="produto1.jpg" alt="Produto 1">
+            <div class="cart-item-details">
+                <h2>Produto 1</h2>
+                <p>Preço: R$ 50,00</p>
+            </div>
+            <div class="cart-item-quantity">
+                <input type="number" value="2" min="1" onchange="updateCart()">
+            </div>
+            <div class="cart-item-subtotal">
+                <p>Subtotal: R$ <span>100,00</span></p>
+            </div>
+        </div>
+        <div class="cart-item" data-price="30">
+            <img src="produto2.jpg" alt="Produto 2">
+            <div class="cart-item-details">
+                <h2>Produto 2</h2>
+                <p>Preço: R$ 30,00</p>
+            </div>
+            <div class="cart-item-quantity">
+                <input type="number" value="1" min="1" onchange="updateCart()">
+            </div>
+            <div class="cart-item-subtotal">
+                <p>Subtotal: R$ <span>30,00</span></p>
+            </div>
+        </div>
+        <div class="total">
+            <strong>Total: R$ <span id="total">130,00</span></strong>
+        </div>
+        <div class="pedido">
+            <button type="button" onclick="realizarPedido()">Realizar Pedido</button>
+        </div>
+    </div>
+    
+    <script>
+        function updateCart() {
+            let total = 0;
+            const cartItems = document.querySelectorAll('.cart-item');
+
+            cartItems.forEach(item => {
+                const price = parseFloat(item.getAttribute('data-price'));
+                const quantity = item.querySelector('.cart-item-quantity input').value;
+                const subtotal = price * quantity;
+                
+                item.querySelector('.cart-item-subtotal span').textContent = subtotal.toFixed(2);
+                total += subtotal;
+            });
+
+            document.getElementById('total').textContent = total.toFixed(2);
+        }
+
+        function realizarPedido() {
+            alert("Pedido realizado com sucesso!");
+            // Aqui você pode adicionar a lógica para enviar o pedido ao servidor
+        }
+    </script>
+</body>
+</html>
