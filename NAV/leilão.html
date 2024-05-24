@@ -3,147 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho de Compras</title>
+    <title>Leilão de Instrumentos Musicais</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #00f, #800080); /* Degradê de azul para roxo */
             margin: 0;
-            padding: 20px;
-            color: #fff; /* Texto branco para melhor contraste */
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #34495e;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #f4f4f4;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            color: #000; /* Texto preto dentro do contêiner para contraste */
-            border-radius: 7px;
+            width: 80%;
+            margin: 20px auto;
+            overflow: hidden;
         }
-        .header {
+        .leilao-info {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
             text-align: center;
             margin-bottom: 20px;
         }
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #757575;
-        }
-        .cart-item img {
-            height: 20px;
-            width: 100px;
-            margin-right: 20px;
-        }
-        .cart-item-details {
-            flex: 1;
-        }
-        .cart-item-details h2 {
+        .leilao-info p {
             margin: 0;
-            font-size: 18px;
         }
-        .cart-item-details p {
-            margin: 5px 0;
-            color: #666;
+        .produto {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
         }
-        .cart-item-price, .cart-item-quantity, .cart-item-subtotal {
-            width: 200px;
-            text-align: right;
-        
+        .produto img {
+            max-width: 100%;
+            height: auto;
         }
-        .cart-item-quantity input {
-            height: 15px;
-            width: 50px;
-            text-align: right;
-            border-radius: 7px;
-            background-color: #bca2fd;
+        .produto h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
         }
-        .total {
-            text-align: right;
-            font-size: 20px;
-            margin-top: 20px;
+        .produto p {
+            font-size: 1.1em;
+            color: #2980b9;
+            margin: 10px 0;
         }
-        .pedido {
-            text-align: right;
-            margin-top: 20px;
-        }
-        .pedido button {
-            padding: 10px 20px;
-            background-color: #6448c0; /* Cor azul */
+        .produto button {
+            padding: 10px 15px;
+            background-color: #2980b9;
             color: white;
             border: none;
             cursor: pointer;
-            transition: background-color 0.3s;
-            border-radius: 10px;;
         }
-        .pedido button:hover {
-            background-color: #4a328b; /* Cor azul escuro */
+        .produto button:hover {
+            background-color: #3498db;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Leilão de Instrumentos Musicais</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Guitarras e Violões</a>
+        <a href="#">Teclados</a>
+        <a href="#">Baterias</a>
+        <a href="#">Microfones</a>
+        <a href="#">Acessórios</a>
+        <a href="#">Contato</a>
+    </nav>
     <div class="container">
-        <div class="header">
-            <h1>Carrinho de Compras</h1>
-            <br>
+        <div class="leilao-info">
+            <p>Participe do nosso leilão de instrumentos musicais e faça seus lances!</p>
         </div>
-        <div class="cart-item" data-price="50">
-            <img src="produto1.jpg" alt="Produto 1">
-            <div class="cart-item-details">
-                <h2>Produto 1</h2>
-                <p>Preço: R$ 50,00</p>
-            </div>
-            <div class="cart-item-quantity">
-                <input type="number" value="2" min="1" onchange="updateCart()">
-            </div>
-            <div class="cart-item-subtotal">
-                <p>Subtotal: R$ <span>100,00</span></p>
-            </div>
-        </div>
-        <div class="cart-item" data-price="30">
-            <img src="produto2.jpg" alt="Produto 2">
-            <div class="cart-item-details">
-                <h2>Produto 2</h2>
-                <p>Preço: R$ 30,00</p>
-            </div>
-            <div class="cart-item-quantity">
-                <input type="number" value="1" min="1" onchange="updateCart()">
-            </div>
-            <div class="cart-item-subtotal">
-                <p>Subtotal: R$ <span>30,00</span></p>
-            </div>
-        </div>
-        <div class="total">
-            <strong>Total: R$ <span id="total">130,00</span></strong>
-        </div>
-        <div class="pedido">
-            <button type="button" onclick="realizarPedido()">Realizar Pedido</button>
-        </div>
-    </div>
-    
-    <script>
-        function updateCart() {
-            let total = 0;
-            const cartItems = document.querySelectorAll('.cart-item');
 
-            cartItems.forEach(item => {
-                const price = parseFloat(item.getAttribute('data-price'));
-                const quantity = item.querySelector('.cart-item-quantity input').value;
-                const subtotal = price * quantity;
-                
-                item.querySelector('.cart-item-subtotal span').textContent = subtotal.toFixed(2);
-                total += subtotal;
-            });
+        <div class="produto">
+            <img src="https://static.vecteezy.com/system/resources/previews/030/467/169/large_2x/a-serene-composition-acoustic-guitar-and-musical-keys-rest-on-a-blank-canvas-vertical-mobile-wallpaper-ai-generated-free-photo.jpg" alt="Violão 1">
+            <h3>Violão Klass Guitar KVN6 Natural</h3>
+            <p>R$ 1.500,00</p>
+            <button>Fazer Lance</button>
+        </div>
+        <div class="produto">
+            <img src="https://i.pinimg.com/originals/86/57/00/8657005cd101b6dc77d9bf139811cc1a.png" alt="Guitarra 2">
+            <h3>Guitarra Gibson Les Paul Classic 1990</h3>
+            <p>R$ 2.500,00</p>
+            <button>Fazer Lance</button>
+        </div>
 
-            document.getElementById('total').textContent = total.toFixed(2);
-        }
+        <div class="produto">
+            <img src="https://www.korg.com.br/imgs/produtos/cabecalho/korg_10270610.jpg" alt="Teclado 1">
+            <h3>Teclado Arranjador Korg PA5X-76</h3>
+            <p>R$ 1.800,00</p>
+            <button>Fazer Lance</button>
+        </div>
+        <div class="produto">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_987390-MLB26525264888_122017-O.webp" alt="Teclado 2">
+            <h3>Teclado Yamaha PSR (USADO)</h3>
+            <p>R$ 500,00</p>
+            <button>Fazer Lance</button>
+        </div>
 
-        function realizarPedido() {
-            alert("Pedido realizado com sucesso!");
-            // Aqui você pode adicionar a lógica para enviar o pedido ao servidor
-        }
-    </script>
-</body>
-</html>
+        <div class="produto">
+            <img src="https://www.cmkvirtual.com.br/storage/images/cache/bateria-turbo-preta-14-12-13-16-22-usada-produto-1680531729-1200-f4fbae04.jpg" alt="Bateria 1">
+            <h3>Bateria Turbo Preta (USADO)</h3>
+            <p>R$ 700,00</p>
+            <button>Fazer Lance</button>
+        </div>
+        <div class="produto">
+            <img src="https://musicaemercado.org/wp-content/uploads/2021/11/bateria-trinity-michael-2.jpeg" alt="Bateria 2">
+            <h3>Bateria Acústica Michael</h3>
+            <p>R$ 1.300,00</p>
+            <button>Fazer Lance</button>
+        </div>
+
+        <div class="produto">
+            <img src="https://cdn.awsli.com.br/600x1000/254/254944/produto/237484382/01-vm-v16u-uytb75zmwi.jpg" alt="Microfone 1">
+            <h3>Microfone sem fio VM-V16U</h3>
+            <p>R$ 150,00</p>
+            <button>Fazer Lance</button>
+        </div>
+        <div class="produto">
+            <img src="https://cdn.awsli.com.br/600x450/1717/1717335/produto/183131179/8ed5457618.jpg" alt="Microfone 2">
+            <h3>Microfone com Cabo Original</h3>
+            <p>R$ 300,00</p>
+            <button>Fazer Lance</button>
+        </div>
