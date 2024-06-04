@@ -58,6 +58,7 @@ nav a:hover {
     font-size: 16px;
     border: none;
     outline: none;
+    transition: 0.3s ease;
 }
 
 .botao2 {
@@ -73,6 +74,12 @@ nav a:hover {
     font-size: 16px;
     border: none;
     outline: none;
+    transition: 0.3s ease;
+}
+
+.botao1:hover, .botao2:hover {
+    box-shadow: 0 0 6px #282c33;
+    transform: scale(1.1);
 }
 
 .logo {
@@ -157,7 +164,7 @@ footer {
     outline: none;
     display: block;
     margin: 10px auto;
-    transition: background-color 0.3s ease; /* Transição suave */
+    transition: 0.3s ease; /* Transição suave */
 }
 
 .produto button:hover {
