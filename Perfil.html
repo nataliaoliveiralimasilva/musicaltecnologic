@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #0000FF, #800080);
+            margin: 0;
+            padding: 0;
+            color: #000000;
+        }
+
+        .profile-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .profile-header {
+            text-align: center;
+            background-color: #4CAF50;
+            color: #FFFFFF;
+            padding: 30px 20px;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .profile-name {
+            font-size: 2em;
+            margin: 0;
+        }
+
+        .profile-details, .profile-posts {
+            padding: 20px;
+        }
+
+        .profile-details h2, .profile-posts h2 {
+            margin-top: 0;
+            color: #000000;
+        }
+
+        .post {
+            background-color: #f9f9f9;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .post h3 {
+            margin: 0 0 10px;
+            color: #4CAF50;
+        }
+
+        .load-more-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="profile-picture.jpg" alt="Foto do Perfil" class="profile-picture">
+            <h1 class="profile-name">Nome do Usuário</h1>
+        </div>
+        <div class="profile-details">
+            <h2>Detalhes</h2>
+            <p><strong>Email:</strong> usuario@exemplo.com</p>
+            <p><strong>Telefone:</strong> (00) 00000-0000</p>
+            <p><strong>Endereço:</strong> Rua Exemplo, 123, Cidade, País</p>
+        </div>
+        <div class="profile-posts">
+            <h2>Compras Recentes</h2>
+            <div class="post">
+                <h3>Título da Compra 1</h3>
+                <p>Detalhes da compra 1...</p>
+            </div>
+            <div class="post">
+                <h3>Título da Compra 2</h3>
+                <p>Detalhes da compra 2...</p>
+            </div>
+            <button class="load-more-button">Carregar mais compras</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loadMoreButton = document.querySelector('.load-more-button');
+            loadMoreButton.addEventListener('click', function () {
+                // Simulação de carregar mais compras
+                const newPost = document.createElement('div');
+                newPost.classList.add('post');
+                newPost.innerHTML = '<h3>Nova Compra</h3><p>Detalhes da nova compra...</p>';
+                document.querySelector('.profile-posts').insertBefore(newPost, loadMoreButton);
+            });
+        });
+    </script>
+</body>
+</html>

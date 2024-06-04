@@ -74,6 +74,7 @@ nav a:hover {
     border: none;
     outline: none;
 }
+
 .logo {
     margin-left: 130px;
     width: 50%;
@@ -96,7 +97,6 @@ footer {
     border-radius: 7px;
 }
 
-    
 .secao {
     margin-top: 40px; /* Maior espaçamento entre seções */
 }
@@ -163,4 +163,41 @@ footer {
 .produto button:hover {
     background-color: #ffcf3f;
     box-shadow: 0 0 10px rgba(24, 23, 23, 0.2); /* Sombra */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    .botao1, .botao2 {
+        float: none;
+        margin-left: 60px;
+        width: 75%;
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        margin: 0 auto 10px auto;
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .produto {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .conteudo {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .produto {
+        width: 100%;
+    }
 }
