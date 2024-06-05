@@ -2,8 +2,11 @@ O arquivo README é traduzido literalmente para "Me leia"
 Este normalmente é um arquivo de texto usado para exibir informações do projeto ou instruções
 
 Nome do projeto: Musical Technologic
+
 "Empresa" Responsável pelo desenvolvimento: EMO Technologies 
+
 Data de entrega: 10/05/2024
+
 Envolvidos no projeto e suas tarefas:
 
 Reginaldo Xavier: Professor
