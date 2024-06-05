@@ -12,6 +12,7 @@ Envolvidos no projeto e suas tarefas:
 Reginaldo Xavier: Professor
 
 André: Professor 
+
 Natalia Oliveira: Desenvolveu parte das telas usadas no site e fez parte do relatório final
 
 Débora Severo: Auxilio na programação em HTML e CSS, auxílio criativo no desenvolvimento, fez parte do relatório final
